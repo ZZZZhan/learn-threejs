@@ -1,5 +1,5 @@
-import THREE from 'three.js';
-
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 //1.  创建场景
 const scene = new THREE.Scene();
 
@@ -24,4 +24,12 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 
 document.body.appendChild(renderer.domElement);
 
-renderer.render(scene, camera);
+// 轨道控制器使得相机围绕目标进行轨道运动
+const controller = new OrbitControls(camera, renderer.domElement);
+// renderer.render(scene, camera);
+function animate() {
+  requestAnimationFrame(animate);
+  controller.update();
+  renderer.render(scene, camera);
+}
+animate();

@@ -1,9 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
-  three.js:
-    specifier: ^0.77.1
-    version: 0.77.1
+  three:
+    specifier: ^0.151.3
+    version: 0.151.3
 
 devDependencies:
   vite:
@@ -315,14 +315,8 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /three.js@0.77.1:
-    resolution: {integrity: sha512-lVMYlBXhhHlZtsF+cQdev6WCm2fSWs3I+A6Z63j6TBmkVXOYgdo9AUCRemfsw5mllqWx23VubJ5Qt8/uWKQpJA==}
-    dependencies:
-      three: 0.77.0
-    dev: false
-
-  /three@0.77.0:
-    resolution: {integrity: sha512-YWEp8ahs2l+6fAFVbanLVQoSBwVq5jDct3nZdBSHHXb5I/w5oy/LCMAzIOAguKWclRqcjR4W1BeP5QBnftGbpA==}
+  /three@0.151.3:
+    resolution: {integrity: sha512-+vbuqxFy8kzLeO5MgpBHUvP/EAiecaDwDuOPPDe6SbrZr96kccF0ktLngXc7xA7bzyd3N0t2f6mw3Z9y6JCojQ==}
     dev: false
 
   /vite@4.2.1:
