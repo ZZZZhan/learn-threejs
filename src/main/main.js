@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+
 //1.  创建场景
 const scene = new THREE.Scene();
 
@@ -17,6 +18,8 @@ const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
 const boxMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00 });
 const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
 
+boxMesh.scale.set(1, 1, 1);
+boxMesh.rotation.set(Math.PI / 4, 0, 0);
 scene.add(boxMesh);
 // 4.创建渲染
 const renderer = new THREE.WebGLRenderer();
@@ -26,8 +29,21 @@ document.body.appendChild(renderer.domElement);
 
 // 轨道控制器使得相机围绕目标进行轨道运动
 const controller = new OrbitControls(camera, renderer.domElement);
-// renderer.render(scene, camera);
-function animate() {
+// 添加坐标轴辅助
+const axesHelper = new THREE.AxesHelper(1);
+
+scene.add(axesHelper);
+function animate(time) {
+  //   boxMesh.position.x += 0.01;
+  //   // boxMesh.rotation.x += 0.01;
+  //   if (boxMesh.position.x > 3) {
+  //     boxMesh.position.x = 0;
+  //   }
+  let t = (time / 1000) % 3;
+  boxMesh.position.x = t * 1;
+  if (boxMesh.position.x > 3) {
+    boxMesh.position.x = 0;
+  }
   requestAnimationFrame(animate);
   controller.update();
   renderer.render(scene, camera);
